@@ -11,6 +11,7 @@ end
 
 group :test do
   gem 'capybara', '1.1.2'
+  gem 'guard-rspec', '1.1.0'
 end
 
 group :production do
