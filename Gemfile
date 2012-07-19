@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.6'
 gem 'pg', '0.14.0'
-gem 'haml-rails', '0.3.4'
 
 group :development, :test do
   gem 'rspec-rails', '2.11.0'
