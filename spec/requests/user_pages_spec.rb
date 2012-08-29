@@ -98,8 +98,8 @@ describe "User pages" do
 
   describe "Profile page" do
     let(:user) { FactoryGirl.create(:user) }
-    let!(:m1)   { FactoryGirl.create(:micropost, user: user, content: "Foo") }
-    let!(:m2)   { FactoryGirl.create(:micropost, user: user, content: "Bar") }
+    let!(:m1)  { FactoryGirl.create(:micropost, user: user, content: "Foo") }
+    let!(:m2)  { FactoryGirl.create(:micropost, user: user, content: "Bar") }
 
     before { visit user_path(user) }
 

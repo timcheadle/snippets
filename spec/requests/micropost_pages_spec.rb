@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "MicropostPages" do
+describe "Micropost Pages" do
   subject { page }
 
   let(:user) { FactoryGirl.create(:user) }
@@ -32,10 +32,26 @@ describe "MicropostPages" do
   end
 
   describe "micropost destruction" do
-    before { visit root_path }
+    let!(:micropost) { FactoryGirl.create(:micropost, user: user) }
 
-    it "should delete a micropost" do
-      expect { click_link "Delete" }.to change(Micropost, :count).by(-1)
+    describe "as correct user" do
+      before { visit root_path }
+
+      it "should delete a micropost" do
+        expect { click_link "Delete" }.to change(Micropost, :count).by(-1)
+      end
+    end
+
+    describe "as incorrect user" do
+      before do
+        let(:incorrect_user) { FactoryGirl.create(:user) }
+        sign_in user
+        visit root_path
+
+        describe "should not show delete links" do
+          it { should_not have_link("Delete", href: delete_micropost_path) }
+        end
+      end
     end
   end
 end
