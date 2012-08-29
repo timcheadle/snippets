@@ -159,8 +159,13 @@ aside {
 
 /* forms */
 
-input, textarea, select, .uneditable-input {
+textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+  border: 1px solid #bbb;
   width: 100%;
+  padding: 6px;
+  height: auto;
+  margin-bottom: 15px;
+  @include box_sizing;
 }
 
 #error_explanation {
@@ -168,12 +173,41 @@ input, textarea, select, .uneditable-input {
   ul {
     margin-top: 5px;
     margin-left: 18px;
+    margin-bottom: 0;
   }
 }
 
 .field_with_errors {
   @extend .control-group;
   @extend .error;
+}
+
+/* microposts */
+
+.microposts {
+  list-style: none;
+  margin: 10px 0 0 0;
+
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+}
+.content {
+  display: block;
+}
+.timestamp {
+  color: $grayLight;
+}
+.gravatar {
+  float: left;
+  margin-right: 10px;
+}
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
 }
 
 /* miscellaneous */
