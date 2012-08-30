@@ -5,6 +5,7 @@ class MicropostsController < ApplicationController
   def create
     @feed_items = current_user.feed.paginate(page: params[:page])
     @micropost = current_user.microposts.build(params[:micropost])
+
     if @micropost.save
       flash[:success] = "Micropost created!"
       redirect_to root_url
