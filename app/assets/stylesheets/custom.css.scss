@@ -209,6 +209,15 @@ aside {
     margin-bottom: 5px;
   }
 }
+#new_micropost .character-count {
+  float: right;
+  color: $grayLight;
+  font-size: 20px;
+
+  &.over-quota {
+    color: $red;
+  }
+}
 
 /* miscellaneous */
 
